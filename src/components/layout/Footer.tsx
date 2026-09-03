@@ -1,3 +1,5 @@
+import { basePath } from "@/lib/basePath";
+
 const footerColumns = [
   {
     title: "Kapé",
@@ -28,7 +30,7 @@ export default function Footer() {
         <div className="rounded-xl bg-kape-cream/80 p-10 backdrop-blur-sm">
           <div className="flex items-start justify-between gap-10">
             <div className="flex items-center gap-2">
-              <img src="/assets/kape-icon.svg" alt="" className="h-8 w-8" />
+              <img src={`${basePath}/assets/kape-icon.svg`} alt="" className="h-8 w-8" />
               <span className="text-2xl font-bold lowercase text-kape-brown">kapé</span>
             </div>
 
