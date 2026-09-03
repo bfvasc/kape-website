@@ -1,3 +1,20 @@
+import Link from "next/link";
+
 export default function Navbar() {
-  return <nav>Navbar</nav>;
+  return (
+    <header className="flex w-full items-center justify-between bg-white px-[120px] py-6">
+      <div className="flex w-[121px] items-start">
+        <span className="text-base font-bold text-kape-brown">Menu</span>
+      </div>
+
+      <Link href="/" className="flex w-[121px] items-center justify-center gap-2">
+        <img src="/assets/kape-icon.svg" alt="" className="h-6 w-6" />
+        <span className="text-lg font-bold lowercase text-kape-brown">kapé</span>
+      </Link>
+
+      <div className="flex w-[121px] items-start justify-end">
+        <span className="text-base font-bold text-kape-brown">Login</span>
+      </div>
+    </header>
+  );
 }
