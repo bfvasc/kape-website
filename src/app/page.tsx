@@ -1,4 +1,5 @@
 import { basePath } from "@/lib/basePath";
+import SearchDock from "@/components/ui/SearchDock";
 
 const audienceCards = [
   {
@@ -40,10 +41,7 @@ export default function Home() {
           <br />
           para quem pesquisa, decide e age
         </h1>
-        <div className="flex h-[48px] items-center gap-[8px] rounded-full bg-kape-brown px-[16px] text-white">
-          <img src={`${basePath}/assets/icons/search-line.svg`} alt="" className="h-6 w-6" />
-          <span className="text-[16px]">Buscar</span>
-        </div>
+        <SearchDock />
       </section>
 
       {/* Hero video placeholder */}
