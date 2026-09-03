@@ -8,9 +8,8 @@ export default function Navbar() {
         <span className="text-base font-bold text-kape-brown">Menu</span>
       </div>
 
-      <Link href="/" className="flex w-[121px] items-center justify-center gap-2">
-        <img src={`${basePath}/assets/kape-icon.svg`} alt="" className="h-6 w-6" />
-        <span className="text-lg font-bold lowercase text-kape-brown">kapé</span>
+      <Link href="/" className="flex w-[121px] items-center justify-center">
+        <img src={`${basePath}/assets/logo/Logo.svg`} alt="Kapé" className="h-10 w-auto" />
       </Link>
 
       <div className="flex w-[121px] items-start justify-end">
