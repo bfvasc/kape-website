@@ -22,16 +22,19 @@ const footerColumns = [
 export default function Footer() {
   return (
     <footer className="relative w-full overflow-hidden bg-kape-brown">
-      {/* Aerial forest photo placeholder */}
-      <div className="absolute inset-0 bg-kape-green/25" />
+      {/* Aerial forest photo */}
+      <img
+        src={`${basePath}/assets/images/Footer.png`}
+        alt=""
+        className="absolute inset-0 h-full w-full object-cover"
+      />
       <div className="absolute inset-0 bg-gradient-to-b from-kape-brown/10 via-kape-brown/40 to-kape-brown" />
 
       <div className="relative mx-auto max-w-[1440px] px-6 pb-10 pt-10">
         <div className="rounded-xl bg-kape-cream/80 p-10 backdrop-blur-sm">
           <div className="flex items-start justify-between gap-10">
-            <div className="flex items-center gap-2">
-              <img src={`${basePath}/assets/kape-icon.svg`} alt="" className="h-8 w-8" />
-              <span className="text-2xl font-bold lowercase text-kape-brown">kapé</span>
+            <div className="flex items-center">
+              <img src={`${basePath}/assets/logo/Logo.svg`} alt="Kapé" className="h-[50px] w-auto" />
             </div>
 
             <div className="flex flex-wrap gap-x-14 gap-y-8">
