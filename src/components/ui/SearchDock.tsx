@@ -5,6 +5,20 @@ import { basePath } from "@/lib/basePath";
 
 const categories = ["Estado", "Município", "Terra Indígena", "Unidade de Conservação"];
 
+const BUTTON_HEIGHT = 48;
+const BOTTOM_OFFSET = 24;
+/** Scroll distance (px) over which the button travels from its inline spot to the bottom. */
+const TRAVEL_DISTANCE = 250;
+
+type Metrics = {
+  /** Viewport-relative top of the button's original inline position. */
+  startTop: number;
+  /** window.scrollY captured when startTop was measured. */
+  scrollYAtMount: number;
+  /** Viewport-relative top of the button once docked at the bottom. */
+  endTop: number;
+};
+
 function BuscarButton({ className = "" }: { className?: string }) {
   return (
     <button
@@ -18,9 +32,8 @@ function BuscarButton({ className = "" }: { className?: string }) {
 }
 
 /**
- * The fixed dock: the Buscar button is the "seed" — the beige bar scales out
- * from behind it, the chips fade/rise in, and the button slides to the right
- * edge, all driven by `expanded` (== isSticky).
+ * The bar + chips that bloom out from behind the Buscar button once it has
+ * finished traveling to the bottom of the viewport.
  */
 function Dock({ expanded }: { expanded: boolean }) {
   return (
@@ -59,40 +72,69 @@ function Dock({ expanded }: { expanded: boolean }) {
 }
 
 export default function SearchDock() {
-  const sentinelRef = useRef<HTMLDivElement>(null);
-  const [isSticky, setIsSticky] = useState(false);
+  const spacerRef = useRef<HTMLDivElement>(null);
+  const metricsRef = useRef<Metrics | null>(null);
+  const [progress, setProgress] = useState(0);
+  const [ready, setReady] = useState(false);
 
   useEffect(() => {
-    const sentinel = sentinelRef.current;
-    if (!sentinel) return;
+    function measure() {
+      if (!spacerRef.current) return;
+      const rect = spacerRef.current.getBoundingClientRect();
+      const previous = metricsRef.current;
+      metricsRef.current = {
+        startTop: previous ? previous.startTop : rect.top,
+        scrollYAtMount: previous ? previous.scrollYAtMount : window.scrollY,
+        endTop: window.innerHeight - BOTTOM_OFFSET - BUTTON_HEIGHT,
+      };
+    }
 
-    const observer = new IntersectionObserver(
-      ([entry]) => setIsSticky(!entry.isIntersecting),
-      { threshold: 0 }
-    );
-    observer.observe(sentinel);
+    measure();
+    setReady(true);
 
-    return () => observer.disconnect();
+    let ticking = false;
+    function applyScroll() {
+      const m = metricsRef.current;
+      if (m) {
+        const p = Math.min(1, Math.max(0, (window.scrollY - m.scrollYAtMount) / TRAVEL_DISTANCE));
+        setProgress(p);
+      }
+      ticking = false;
+    }
+
+    function onScroll() {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(applyScroll);
+    }
+
+    function onResize() {
+      measure();
+      applyScroll();
+    }
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onResize);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onResize);
+    };
   }, []);
+
+  const expanded = progress >= 1;
+  const m = metricsRef.current;
+  const top = m ? m.startTop + (m.endTop - m.startTop) * progress : undefined;
 
   return (
     <>
-      {/* Initial state: just the Buscar button, in normal page flow */}
-      <div ref={sentinelRef}>
-        <BuscarButton />
-      </div>
+      {/* Reserves the button's original space in the hero flow */}
+      <div ref={spacerRef} style={{ height: BUTTON_HEIGHT }} aria-hidden="true" />
 
-      {/* Fixed dock: rises from the bottom and blooms open from the button */}
-      <div
-        aria-hidden={!isSticky}
-        className={`fixed bottom-6 left-1/2 z-50 -translate-x-1/2 transition-all duration-[400ms] ${
-          isSticky
-            ? "translate-y-0 opacity-100 ease-out"
-            : "pointer-events-none translate-y-4 opacity-0 ease-in"
-        }`}
-      >
-        <Dock expanded={isSticky} />
-      </div>
+      {ready && (
+        <div className="fixed left-1/2 z-50 -translate-x-1/2" style={{ top }}>
+          <Dock expanded={expanded} />
+        </div>
+      )}
     </>
   );
 }
