@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { basePath } from "@/lib/basePath";
 
 export default function Navbar() {
   return (
@@ -8,7 +9,7 @@ export default function Navbar() {
       </div>
 
       <Link href="/" className="flex w-[121px] items-center justify-center gap-2">
-        <img src="/assets/kape-icon.svg" alt="" className="h-6 w-6" />
+        <img src={`${basePath}/assets/kape-icon.svg`} alt="" className="h-6 w-6" />
         <span className="text-lg font-bold lowercase text-kape-brown">kapé</span>
       </Link>
 

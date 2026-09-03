@@ -1,3 +1,5 @@
+import { basePath } from "@/lib/basePath";
+
 const audienceCards = [
   {
     title: "Cientistas",
@@ -39,7 +41,7 @@ export default function Home() {
           para quem pesquisa, decide e age
         </h1>
         <div className="flex h-[48px] items-center gap-[8px] rounded-full bg-kape-brown px-[16px] text-white">
-          <img src="/assets/search-line.svg" alt="" className="h-6 w-6" />
+          <img src={`${basePath}/assets/search-line.svg`} alt="" className="h-6 w-6" />
           <span className="text-[16px]">Buscar</span>
         </div>
       </section>
@@ -47,7 +49,7 @@ export default function Home() {
       {/* Hero video placeholder */}
       <section className="mt-[80px] w-full max-w-[1156px] px-6">
         <div className="relative flex h-[720px] w-full items-center justify-center rounded-2xl bg-kape-green">
-          <img src="/assets/play-large-fill.svg" alt="" className="h-[160px] w-[160px]" />
+          <img src={`${basePath}/assets/play-large-fill.svg`} alt="" className="h-[160px] w-[160px]" />
         </div>
       </section>
 
@@ -61,7 +63,7 @@ export default function Home() {
           </h2>
           <div className="flex h-[48px] w-fit items-center gap-[8px] rounded-full border border-kape-text/20 px-[16px]">
             <span className="text-[16px] text-kape-brown">Conheça o projeto</span>
-            <img src="/assets/arrow-right-up-line.svg" alt="" className="h-6 w-6" />
+            <img src={`${basePath}/assets/arrow-right-up-line.svg`} alt="" className="h-6 w-6" />
           </div>
         </div>
         <p className="w-full max-w-[568px] text-[16px] leading-[1.4] text-kape-text">
@@ -121,7 +123,7 @@ export default function Home() {
             </p>
             <div className="flex h-[48px] w-fit items-center gap-[8px] rounded-full bg-kape-green px-[16px]">
               <span className="text-[16px] text-kape-brown">Explore os dados</span>
-              <img src="/assets/arrow-right-up-line.svg" alt="" className="h-6 w-6" />
+              <img src={`${basePath}/assets/arrow-right-up-line.svg`} alt="" className="h-6 w-6" />
             </div>
           </div>
         </div>
