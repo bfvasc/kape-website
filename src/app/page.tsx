@@ -35,8 +35,11 @@ export default function Home() {
   return (
     <main className="flex w-full flex-col items-center">
       {/* Hero */}
-      <section className="mt-[80px] flex w-full max-w-[922px] flex-col items-center gap-[40px] px-6 text-center">
-        <h1 className="text-[80px] font-medium leading-none tracking-[-1.6px] text-kape-brown">
+      <section className="mt-[80px] mb-[84px] flex w-full max-w-[922px] flex-col items-center gap-[40px] px-6 text-center">
+        <p className="text-[16px] font-normal text-kape-brown">
+          Confiado por mais de 2k+ profissionais
+        </p>
+        <h1 className="font-serif text-[80px] font-medium leading-none tracking-[-1.6px] text-kape-brown">
           Dados ambientais
           <br />
           para quem pesquisa, decide e age
@@ -45,7 +48,7 @@ export default function Home() {
       </section>
 
       {/* Hero video placeholder */}
-      <section className="mt-[80px] w-full max-w-[1156px] px-6">
+      <section className="w-full max-w-[1156px] px-6">
         <div className="relative flex h-[720px] w-full items-center justify-center rounded-2xl bg-kape-green">
           <div className="flex h-[160px] w-[160px] items-center justify-center rounded-full bg-white">
             <img src={`${basePath}/assets/icons/Vector.svg`} alt="" className="h-[37px] w-[31px]" />
