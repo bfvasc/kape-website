@@ -37,7 +37,7 @@ function BuscarButton({ className = "" }: { className?: string }) {
  */
 function Dock({ expanded }: { expanded: boolean }) {
   return (
-    <div className="group relative flex h-[56px] w-[700px] max-w-[90vw] items-center">
+    <div className="relative flex h-[56px] w-[700px] max-w-[90vw] items-center">
       <div
         className={`absolute inset-0 origin-center rounded-full bg-kape-sand/90 shadow-xl backdrop-blur-md transition-transform duration-[400ms] ease-out ${
           expanded ? "scale-x-100" : "scale-x-0"
@@ -55,7 +55,7 @@ function Dock({ expanded }: { expanded: boolean }) {
           <button
             key={label}
             type="button"
-            className="whitespace-nowrap rounded-[4px] border border-transparent px-[14px] py-[8px] text-[14px] text-kape-brown transition-colors duration-200 group-hover:border-kape-brown/10 group-hover:bg-kape-cream"
+            className="whitespace-nowrap rounded-[4px] border border-transparent px-[14px] py-[8px] text-[14px] text-kape-brown transition-colors duration-200 hover:border-kape-brown/10 hover:bg-kape-cream"
           >
             {label}
           </button>
