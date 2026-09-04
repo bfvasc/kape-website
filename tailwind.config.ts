@@ -18,6 +18,7 @@ const config: Config = {
       },
       fontFamily: {
         sans: ["var(--font-outfit)"],
+        serif: ["var(--font-libre-baskerville)"],
       },
     },
   },
