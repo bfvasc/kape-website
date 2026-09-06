@@ -1,5 +1,6 @@
 import { basePath } from "@/lib/basePath";
 import SearchDock from "@/components/ui/SearchDock";
+import AudienceCarousel from "@/components/ui/AudienceCarousel";
 
 const audienceCards = [
   {
@@ -133,36 +134,17 @@ export default function Home() {
       </section>
 
       {/* Quem usa Kapé */}
-      <section className="mt-[160px] flex w-full max-w-[1156px] flex-col gap-[24px] px-6">
-        <h2 className="text-[64px] font-medium leading-none tracking-[-1.28px] text-kape-brown">
+      <section className="mt-[160px] flex w-full max-w-[1156px] px-6">
+        <h2 className="font-serif text-[64px] font-medium leading-[1.2] tracking-[-1.28px] text-kape-brown">
           Quem usa
           <br />
           Kapé?
         </h2>
-        <p className="max-w-[332px] text-[16px] leading-[1.4] text-kape-text">
-          Lorem ipsum dolor sit amet consectetur. Integer vel ipsum vitae pretium
-          mattis ullamcorper.
-        </p>
       </section>
 
-      <section className="mt-[80px] grid w-full max-w-[1156px] grid-cols-1 gap-[20px] px-6 sm:grid-cols-2 lg:grid-cols-4">
-        {audienceCards.map((card) => (
-          <div
-            key={card.title}
-            className="flex h-[480px] flex-col justify-between rounded-2xl border border-kape-text/20 p-[40px]"
-          >
-            <div className="h-[64px] w-[64px] rounded-2xl bg-kape-green" />
-            <div className="flex flex-col gap-[16px]">
-              <p className="text-[20px] font-medium leading-[1.2] text-kape-brown">
-                {card.title}
-              </p>
-              <p className="text-[16px] leading-[1.4] text-kape-text">
-                {card.description}
-              </p>
-            </div>
-          </div>
-        ))}
-      </section>
+      <div className="mt-[80px] w-full">
+        <AudienceCarousel cards={audienceCards} />
+      </div>
 
       {/* Endorsements */}
       <section className="mt-[160px] w-full max-w-[1156px] px-6 text-center">
