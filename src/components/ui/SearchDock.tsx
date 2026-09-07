@@ -322,14 +322,12 @@ export default function SearchDock() {
               focused ? "opacity-100" : "pointer-events-none opacity-0"
             }`}
           >
-            <h2 className="w-[725px] text-left text-[24px] text-[#1c1b17]">
+            <h2 className="text-center text-[24px] text-[#1c1b17]">
               Explore mais de 3k territórios e dados
             </h2>
 
             <div className="relative mt-[48px]">
-              <div className="absolute left-1/2 top-[100px] z-0 h-[400px] w-[1176px] -translate-x-1/2 rounded-2xl bg-[#b8e519]" />
-
-              <div className="relative z-10 flex w-[725px] gap-[24px]">
+              <div className="flex w-[725px] gap-[24px]">
                 {SUGGESTION_CARDS.map((card, index) => (
                   <div key={index} className="flex-1">
                     <div className="relative h-[146px] w-full overflow-hidden rounded-xl bg-[#2d4a3e]">
