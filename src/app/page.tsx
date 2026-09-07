@@ -109,9 +109,15 @@ export default function Home() {
       {/* Endorsements */}
       <section className="mt-[160px] w-full max-w-[1156px] px-6 text-center">
         <p className="mx-auto text-[20px] leading-[1.4] text-kape-text/60">
-          A Kapé é desenvolvida com o apoio de instituições comprometidas com
-          ciência aberta e conservação ambiental.
+          A Kapé é desenvolvida com o apoio de instituições
+          <br />
+          comprometidas com ciência aberta e conservação ambiental.
         </p>
+        <img
+          src={`${basePath}/assets/logo/relva-logo-preto-01-RGB.svg`}
+          alt="Relva"
+          className="mx-auto mt-[40px] block h-[114px] w-auto"
+        />
       </section>
 
       <section className="mb-[160px] mt-[60px] flex w-full max-w-[1156px] flex-wrap justify-center gap-[40px] px-6">
