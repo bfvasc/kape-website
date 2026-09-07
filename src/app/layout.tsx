@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Outfit, Libre_Baskerville } from "next/font/google";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import { SearchFocusProvider } from "@/lib/SearchFocusContext";
 import "@/styles/globals.css";
 
 const outfit = Outfit({ subsets: ["latin"], variable: "--font-outfit" });
@@ -24,9 +25,11 @@ export default function RootLayout({
   return (
     <html lang="pt-BR" className={`${outfit.variable} ${libreBaskerville.variable}`}>
       <body className="overflow-x-hidden font-sans antialiased">
-        <Navbar />
-        {children}
-        <Footer />
+        <SearchFocusProvider>
+          <Navbar />
+          {children}
+          <Footer />
+        </SearchFocusProvider>
       </body>
     </html>
   );

@@ -1,11 +1,22 @@
+"use client";
+
 import Link from "next/link";
 import { basePath } from "@/lib/basePath";
+import { useSearchFocus } from "@/lib/SearchFocusContext";
 
 export default function Navbar() {
+  const { focused } = useSearchFocus();
+
   return (
-    <header className="flex w-full items-center justify-between bg-white px-[120px] py-6">
+    <header className="relative z-[41] flex w-full items-center justify-between bg-white px-[120px] py-6">
       <div className="flex w-[121px] items-start">
-        <span className="text-base font-bold text-kape-brown">Menu</span>
+        <span
+          className={`text-base font-bold text-kape-brown transition-opacity duration-200 ${
+            focused ? "pointer-events-none opacity-0" : "opacity-100"
+          }`}
+        >
+          Menu
+        </span>
       </div>
 
       <Link href="/" className="flex w-[121px] items-center justify-center">
@@ -13,7 +24,13 @@ export default function Navbar() {
       </Link>
 
       <div className="flex w-[121px] items-start justify-end">
-        <span className="text-base font-bold text-kape-brown">Login</span>
+        <span
+          className={`text-base font-bold text-kape-brown transition-opacity duration-200 ${
+            focused ? "pointer-events-none opacity-0" : "opacity-100"
+          }`}
+        >
+          Login
+        </span>
       </div>
     </header>
   );
