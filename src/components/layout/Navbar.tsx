@@ -8,7 +8,11 @@ export default function Navbar() {
   const { focused } = useSearchFocus();
 
   return (
-    <header className="relative z-[41] flex w-full items-center justify-between bg-white px-[120px] py-6">
+    <header
+      className={`flex w-full items-center justify-between bg-white px-[120px] py-6 ${
+        focused ? "fixed inset-x-0 top-0 z-50" : "relative z-[41]"
+      }`}
+    >
       <div className="flex w-[121px] items-start">
         <span
           className={`text-base font-bold text-kape-brown transition-opacity duration-200 ${

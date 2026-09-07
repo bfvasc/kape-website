@@ -311,7 +311,7 @@ export default function SearchDock() {
       {ready && (
         <>
           <div
-            className={`fixed inset-0 z-40 bg-[#f7f6f2]/[0.72] backdrop-blur-md transition-opacity duration-200 ease-out ${
+            className={`fixed inset-0 z-40 bg-[#f7f6f2]/[0.96] backdrop-blur-md transition-opacity duration-200 ease-out ${
               focused ? "opacity-100" : "pointer-events-none opacity-0"
             }`}
             aria-hidden="true"
