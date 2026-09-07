@@ -233,6 +233,11 @@ export default function SearchDock() {
       const m = metricsRef.current;
       if (m) {
         const p = Math.min(1, Math.max(0, (window.scrollY - m.scrollYAtMount) / TRAVEL_DISTANCE));
+        if (p === 0 && spacerRef.current) {
+          // At/above the scroll threshold, resync to the button's live static
+          // position so no stale offset lingers from the dock animation.
+          m.startTop = spacerRef.current.getBoundingClientRect().top;
+        }
         setProgress(p);
       }
       ticking = false;

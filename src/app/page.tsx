@@ -30,7 +30,7 @@ export default function Home() {
   return (
     <main className="flex w-full flex-col items-center">
       {/* Hero */}
-      <section className="mt-[80px] mb-[84px] flex w-full max-w-[922px] flex-col items-center gap-[40px] px-6 text-center">
+      <section className="mt-[80px] mb-[84px] pt-[88px] flex w-full max-w-[922px] flex-col items-center gap-[40px] px-6 text-center">
         <p className="text-[16px] font-normal text-kape-brown">
           Confiado por mais de 2k+ profissionais
         </p>
