@@ -71,7 +71,7 @@ function CategoryDropdown() {
       </button>
 
       {open && (
-        <div className="absolute bottom-full left-0 mb-[8px] w-max overflow-hidden rounded-xl bg-kape-sand shadow-[0_4px_16px_rgba(0,0,0,0.08)]">
+        <div className="absolute bottom-full left-0 mb-[16px] w-max overflow-hidden rounded-xl bg-kape-sand shadow-[0_4px_16px_rgba(0,0,0,0.08)]">
           {categoryOptions.map((option) => (
             <button
               key={option}
