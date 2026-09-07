@@ -30,11 +30,7 @@ export default function Navbar() {
 
   return (
     <>
-      <header
-        className={`fixed inset-x-0 top-0 z-50 flex w-full items-center justify-between px-[120px] py-6 ${
-          focused ? "bg-transparent" : "bg-white"
-        }`}
-      >
+      <header className="fixed inset-x-0 top-0 z-50 flex w-full items-center justify-between bg-transparent px-[120px] py-6">
         <div className="flex w-[121px] items-start">
           <span
             onClick={() => setMenuOpen(true)}
