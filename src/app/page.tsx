@@ -107,7 +107,7 @@ export default function Home() {
       </div>
 
       {/* Endorsements */}
-      <section className="mt-[160px] w-full max-w-[1156px] px-6 text-center">
+      <section className="mt-[160px] w-full max-w-[1156px] px-6 pb-[160px] text-center">
         <p className="mx-auto text-[20px] leading-[1.4] text-kape-text/60">
           A Kapé é desenvolvida com o apoio de instituições
           <br />
