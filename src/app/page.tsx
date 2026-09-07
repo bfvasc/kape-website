@@ -60,7 +60,7 @@ export default function Home() {
       {/* Sobre a Kapé */}
       <section className="mt-[160px] flex w-full max-w-[1156px] flex-col gap-[60px] px-6 lg:flex-row lg:justify-between">
         <div className="flex w-full max-w-[470px] flex-col gap-[80px]">
-          <h2 className="text-[64px] font-medium leading-none tracking-[-1.28px] text-kape-brown">
+          <h2 className="font-serif text-[64px] font-medium leading-none tracking-[-1.28px] text-kape-brown">
             Kapé significa &quot;semente&quot;
             <br />
             em Tukano-Bará
@@ -108,7 +108,7 @@ export default function Home() {
                 }`}
               >
                 <span
-                  className={`text-[72px] font-medium leading-[1.2] ${
+                  className={`font-serif text-[72px] font-medium leading-[1.2] ${
                     service.active ? "text-kape-brown" : "text-kape-text"
                   }`}
                 >

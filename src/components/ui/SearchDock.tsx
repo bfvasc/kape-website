@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { basePath } from "@/lib/basePath";
 
-const categories = ["Estado", "Município", "Terra Indígena", "Unidade de Conservação"];
+const filterOptions = ["Todos", "Estado", "Município", "Terra Indígena", "Unidade de Conservação"];
 
 const BUTTON_HEIGHT = 48;
 const BOTTOM_OFFSET = 24;
@@ -45,21 +45,31 @@ function Dock({ expanded }: { expanded: boolean }) {
       />
 
       <div
-        className={`absolute inset-y-0 left-[4px] right-[152px] flex items-center justify-between px-[48px] transition-all duration-[400ms] ease-out ${
+        className={`absolute inset-y-0 left-[4px] right-[152px] flex items-center gap-[12px] px-[12px] transition-all duration-[400ms] ease-out ${
           expanded
             ? "translate-y-0 opacity-100 delay-100"
             : "pointer-events-none translate-y-2 opacity-0"
         }`}
       >
-        {categories.map((label) => (
-          <button
-            key={label}
-            type="button"
-            className="whitespace-nowrap rounded-[4px] border border-transparent px-[14px] py-[8px] text-[14px] text-kape-brown transition-colors duration-200 hover:border-kape-brown/10 hover:bg-kape-cream"
+        <div className="flex h-[40px] shrink-0 items-center gap-[4px] rounded-full bg-kape-cream px-[12px]">
+          <select
+            defaultValue="Todos"
+            className="cursor-pointer appearance-none bg-transparent text-[14px] text-kape-brown outline-none"
           >
-            {label}
-          </button>
-        ))}
+            {filterOptions.map((option) => (
+              <option key={option} value={option}>
+                {option}
+              </option>
+            ))}
+          </select>
+          <img src={`${basePath}/assets/icons/arrow-down-s-line.svg`} alt="" className="h-4 w-4" />
+        </div>
+
+        <input
+          type="text"
+          placeholder="Buscar..."
+          className="min-w-0 flex-1 border-none bg-transparent text-[14px] text-kape-brown outline-none placeholder:text-[#a19e91]"
+        />
       </div>
 
       <BuscarButton
