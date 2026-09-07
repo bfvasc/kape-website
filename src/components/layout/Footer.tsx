@@ -21,8 +21,8 @@ const footerColumns = [
 
 export default function Footer() {
   return (
-    <footer className="relative w-full overflow-hidden bg-kape-brown">
-      {/* Aerial forest photo */}
+    <footer className="relative h-[540px] w-full bg-kape-brown">
+      {/* Aerial forest photo — spans the full outer wrapper, bleeding out from behind the card */}
       <img
         src={`${basePath}/assets/images/Footer.png`}
         alt=""
@@ -30,8 +30,8 @@ export default function Footer() {
       />
       <div className="absolute inset-0 bg-gradient-to-b from-kape-brown/10 via-kape-brown/40 to-kape-brown" />
 
-      <div className="relative mx-auto max-w-[1440px] px-6 pb-10 pt-10">
-        <div className="rounded-xl bg-kape-cream/80 p-10 backdrop-blur-sm">
+      <div className="relative mx-auto h-full w-full max-w-[1440px]">
+        <div className="absolute left-[24px] right-[24px] top-[40px] h-[460px] overflow-hidden rounded-xl bg-kape-cream/[0.72] p-10 backdrop-blur-sm">
           <div className="flex items-start justify-between gap-10">
             <div className="flex items-center">
               <img src={`${basePath}/assets/logo/Logo.svg`} alt="Kapé" className="h-[50px] w-auto" />
