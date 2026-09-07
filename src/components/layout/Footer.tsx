@@ -21,7 +21,7 @@ const footerColumns = [
 
 export default function Footer() {
   return (
-    <footer className="relative h-[540px] w-full bg-kape-brown">
+    <footer className="relative h-[920px] w-full bg-kape-brown">
       {/* Aerial forest photo — spans the full outer wrapper, bleeding out from behind the card */}
       <img
         src={`${basePath}/assets/images/Footer.png`}

@@ -9,6 +9,7 @@ const categoryOptions = [
   "Terra Indígena",
   "Unidade de conservação",
   "Floresta pública não destinada",
+  "Todos",
 ];
 
 const BUTTON_HEIGHT = 48;
