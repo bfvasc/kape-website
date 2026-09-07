@@ -119,12 +119,6 @@ export default function Home() {
           className="mx-auto mt-[40px] block h-[114px] w-auto"
         />
       </section>
-
-      <section className="mb-[160px] mt-[60px] flex w-full max-w-[1156px] flex-wrap justify-center gap-[40px] px-6">
-        {[1, 2, 3, 4].map((i) => (
-          <div key={i} className="h-[114px] min-w-[220px] flex-1 rounded-2xl bg-kape-sand" />
-        ))}
-      </section>
     </main>
   );
 }
