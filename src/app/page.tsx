@@ -1,6 +1,7 @@
 import { basePath } from "@/lib/basePath";
 import SearchDock from "@/components/ui/SearchDock";
 import AudienceCarousel from "@/components/ui/AudienceCarousel";
+import ServicosAmbientais from "@/components/ui/ServicosAmbientais";
 
 const audienceCards = [
   {
@@ -23,13 +24,6 @@ const audienceCards = [
     description:
       "Utilize informações didáticas e visuais, prontas para levar pra sala de aula ou compartilhar via WhatsApp.",
   },
-];
-
-const services = [
-  { name: "Água", active: true },
-  { name: "Carbono", active: false },
-  { name: "Biodiversidade", active: false },
-  { name: "Clima do Futuro", active: false },
 ];
 
 export default function Home() {
@@ -97,41 +91,7 @@ export default function Home() {
       </section>
 
       {/* Serviços ambientais */}
-      <section className="mt-[160px] w-full bg-kape-sand py-[120px]">
-        <div className="mx-auto flex w-full max-w-[1156px] flex-col gap-[60px] px-6 lg:flex-row lg:justify-between">
-          <div className="flex w-full max-w-[571px] flex-col gap-[40px]">
-            {services.map((service) => (
-              <div
-                key={service.name}
-                className={`flex h-[86px] items-center px-[40px] ${
-                  service.active ? "border-l-2 border-kape-brown" : ""
-                }`}
-              >
-                <span
-                  className={`font-serif text-[56px] font-medium leading-[1.2] ${
-                    service.active ? "text-kape-brown" : "text-kape-text"
-                  }`}
-                >
-                  {service.name}
-                </span>
-              </div>
-            ))}
-          </div>
-          <div className="flex w-full max-w-[451px] flex-col gap-[80px]">
-            <div className="h-[338px] w-full rounded-2xl bg-kape-cream" />
-            <p className="text-[16px] leading-[1.4] text-kape-text">
-              Recursos hídricos, bacias, qualidade e disponibilidade de água por
-              região. Lorem ipsum dolor sit amet consectetur. Odio adipiscing sed
-              sed aliquet dui diam egestas vitae. Sit vel fermentum sed in non
-              justo integer. Feugiat amet nunc faucibus purus egestas.
-            </p>
-            <div className="flex h-[48px] w-fit items-center gap-[8px] rounded-full bg-kape-green px-[16px]">
-              <span className="text-[16px] text-kape-brown">Explore os dados</span>
-              <img src={`${basePath}/assets/icons/arrow-right-up-line.svg`} alt="" className="h-6 w-6" />
-            </div>
-          </div>
-        </div>
-      </section>
+      <ServicosAmbientais />
 
       {/* Quem usa Kapé */}
       <section className="mt-[160px] flex w-full max-w-[1156px] px-6">
